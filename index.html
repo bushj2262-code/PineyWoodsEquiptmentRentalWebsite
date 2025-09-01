@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Piney Woods Equiptment — Washer & Dryer Rentals (East Texas)</title>
+  <meta name="description" content="Affordable washer & dryer rentals in East Texas. $50/mo financing, $40/mo rentals, fast delivery & repairs. Piney Woods Equiptment." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121a2b;
+      --muted:#9bb1d1;
+      --text:#eef3ff;
+      --accent:#70e1a1;
+      --accent-2:#58a6ff;
+      --warning:#ffd166;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --glass: rgba(255,255,255,0.04);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;padding:0;background:linear-gradient(180deg,var(--bg),#0c1426 50%,var(--bg));color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;scroll-behavior:smooth}
+    a{color:inherit;text-decoration:none}
+    .container{width:100%;max-width:1100px;margin:0 auto;padding:0 20px}
+
+    /* NAV */
+    .nav{position:sticky;top:0;background:linear-gradient(180deg, rgba(11,18,32,.85), rgba(11,18,32,.7));backdrop-filter: blur(8px);z-index:100;border-bottom:1px solid rgba(255,255,255,.04)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:12px;align-items:center;font-weight:800}
+    .logo{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;box-shadow:var(--shadow)}
+    .logo svg{width:22px;height:22px;fill:#08121a}
+    .brand-title{line-height:1}
+    .brand-title .title{font-size:15px}
+    .brand-title .sub{font-size:12px;color:var(--muted);margin-top:2px}
+
+    .tabs{display:flex;gap:8px;align-items:center}
+    .tab{padding:8px 12px;border-radius:10px;font-weight:700;background:transparent;border:1px solid rgba(255,255,255,.03);color:var(--text);cursor:pointer}
+    .tab.active{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#08121a;border:none;box-shadow:0 6px 18px rgba(16,24,32,.45)}
+    .top-cta{display:flex;gap:8px;align-items:center}
+    .top-cta .btn{padding:8px 12px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#08121a;font-weight:700;border:none;cursor:pointer}
+
+    /* PAGE WRAPPER */
+    main{padding-bottom:60px}
+
+    /* HERO (kept from original style) */
+    .hero{padding:56px 0 30px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:center}
+    .hero h1{font-size: clamp(26px, 3.6vw, 44px);line-height:1.05;margin:0 0 10px}
+    .hero p{color:var(--muted);font-size:15px}
+    .badges{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+    .badge{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,.04);padding:8px 12px;border-radius:999px;color:#dff7ef;font-weight:600;display:flex;align-items:center;gap:8px}
+
+    /* CARD */
+    .card{background:linear-gradient(180deg,var(--card),#10182a);border:1px solid rgba(255,255,255,.04);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .pad{padding:20px}
+
+    /* pricing grid */
+    .grid{display:grid;gap:16px}
+    .cols-3{grid-template-columns:repeat(3,1fr)}
+    .cols-2{grid-template-columns:repeat(2,1fr)}
+    .plan .dollars{font-weight:800;font-size:30px;color:var(--accent)}
+
+    /* steps */
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .step{padding:16px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px dashed rgba(255,255,255,.04)}
+    .step .num{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#08121a;display:grid;place-items:center;font-weight:800}
+
+    /* inventory */
+    .item{display:flex;gap:14px;align-items:center}
+    .img{width:88px;height:88px;border-radius:12px;background:linear-gradient(135deg,#1b2a46,#213a6b);border:1px solid rgba(255,255,255,.06)}
+
+    /* FAQ */
+    details{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,.04);border-radius:12px;padding:12px}
+    summary{cursor:pointer;font-weight:700}
+
+    /* CONTACT / FORM */
+    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+    input,textarea,select{width:100%;padding:12px;border-radius:12px;background:#0f182b;border:1px solid rgba(255,255,255,.06);color:var(--text);font-size:14px}
+    textarea{min-height:120px}
+    .form-submit{padding:12px 16px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#08121a;font-weight:800;border:none;cursor:pointer}
+
+    /* page container style for SPA pages */
+    .page{display:none;padding:28px 0}
+    .page.active{display:block}
+
+    /* footer */
+    .footer{margin-top:30px;padding:28px 0;border-top:1px solid rgba(255,255,255,.04);color:#bcd0f0;text-align:center}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero-grid{grid-template-columns:1fr}
+      .steps{grid-template-columns:repeat(2,1fr)}
+      .cols-3{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+    }
+
+    /* small helper */
+    .muted{color:var(--muted)}
+    .small{font-size:13px;color:var(--muted)}
+    .right{display:flex;justify-content:flex-end;gap:8px}
+  </style>
+</head>
+<body>
+  <!-- NAV / TABS -->
+  <header class="nav" role="banner">
+    <div class="container nav-inner">
+      <div class="brand" aria-hidden="false">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H7l-4 4V6z"/></svg>
+        </div>
+        <div class="brand-title">
+          <div class="title">Piney Woods Equiptment</div>
+          <div class="sub">Washer & Dryer Rentals — East Texas</div>
+        </div>
+      </div>
+
+      <nav class="tabs" aria-label="Main navigation">
+        <button class="tab active" data-target="home">Home</button>
+        <button class="tab" data-target="rental">Rental & Financing</button>
+        <button class="tab" data-target="company">Company Info</button>
+        <button class="tab" data-target="repair">Repair Info</button>
+        <button class="tab" data-target="troubleshoot">Troubleshooting</button>
+        <button class="tab" data-target="contact">Contact</button>
+      </nav>
+
+      <div class="top-cta">
+        <a class="btn" href="tel:9368008633" title="Call Piney Woods">(936) 800-8633</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <!-- HOME PAGE -->
+    <section id="home" class="page active">
+      <div class="hero">
+        <div class="hero-grid">
+          <div>
+            <h1>Affordable Washer & Dryer Rentals — <span style="background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent">$50/mo</span> Plans</h1>
+            <p class="muted">Skip the laundromat. We deliver, install, and cover repairs across East Texas. Flexible terms, no credit check, and fast setup.</p>
+
+            <div class="badges" aria-hidden="true">
+              <div class="badge">🚚 Free delivery & setup</div>
+              <div class="badge">🛠️ Repairs included</div>
+              <div class="badge">📅 Flexible terms</div>
+              <div class="badge">✅ No credit check</div>
+            </div>
+
+            <div style="margin-top:12px;">
+              <button class="tab btn primary" data-target="rental">See Pricing</button>
+              <button class="btn" onclick="activateTab('contact')">Call / Text to Book</button>
+            </div>
+
+            <p class="small" style="margin-top:10px">Serving Nacogdoches • Lufkin • Angelina & Nacogdoches Counties</p>
+          </div>
+
+          <aside class="card pad hero-card" aria-label="Quick details">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div class="price" style="font-size:34px;color:var(--accent)">$50<span class="small">/mo</span></div>
+                <div class="small muted" style="margin-top:6px">Financing starts at $50/month — 18 months minimum term available</div>
+              </div>
+              <div style="text-align:right">
+                <div class="tiny muted">Delivery & setup</div>
+                <div style="margin-top:8px" class="tiny muted">Repairs covered</div>
+              </div>
+            </div>
+
+            <div style="margin-top:12px">
+              <div class="check" style="align-items:center"><svg viewBox="0 0 24 24" width="18" height="18" style="margin-right:8px;fill:var(--accent)"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Fast delivery (usually 24–48 hrs)</div>
+              <div class="check" style="margin-top:8px;align-items:center"><svg viewBox="0 0 24 24" width="18" height="18" style="margin-right:8px;fill:var(--accent)"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Worry-free repairs included</div>
+              <div class="check" style="margin-top:8px;align-items:center"><svg viewBox="0 0 24 24" width="18" height="18" style="margin-right:8px;fill:var(--accent)"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>No long applications or credit checks</div>
+            </div>
+
+            <div style="margin-top:14px">
+              <button class="btn primary" onclick="activateTab('contact')">Reserve Your Set</button>
+              <div class="small muted" style="margin-top:8px">Limited stock available each week</div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- Why rent -->
+      <section class="section">
+        <h2>Why Rent from Piney Woods Equiptment?</h2>
+        <div class="grid cols-3">
+          <div class="card pad">
+            <h3>Budget Friendly</h3>
+            <p class="muted">Keep cash in your pocket. Simple monthly payments with no surprise fees.</p>
+          </div>
+          <div class="card pad">
+            <h3>Quick Delivery</h3>
+            <p class="muted">We deliver and install your set. Old units hauled away on request.</p>
+          </div>
+          <div class="card pad">
+            <h3>Repairs Handled</h3>
+            <p class="muted">If something breaks, we fix or swap it fast — your laundry never skips a beat.</p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- RENTAL & FINANCING PAGE -->
+    <section id="rental" class="page">
+      <div class="section">
+        <h2>Rental & Financing Terms</h2>
+
+        <div class="grid cols-3" style="margin-bottom:18px">
+          <!-- Rental Card -->
+          <div class="card pad plan">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <h3>Rental (Ongoing)</h3>
+              <span class="tag" style="background:rgba(112,225,161,.08);color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px;border:1px solid rgba(112,225,161,.18)">Most Flexible</span>
+            </div>
+            <div class="dollars">$40<span class="small">/mo</span></div>
+            <ul style="margin-top:8px;color:var(--muted)">
+              <li>Month-to-month rental (cancel any time with notice)</li>
+              <li>Delivery & professional setup included</li>
+              <li>Repairs & replacement service included</li>
+              <li>Old unit haul-away available for a small fee</li>
+            </ul>
+            <div style="margin-top:12px">
+              <button class="btn" onclick="activateTab('contact')">Start Rental</button>
+            </div>
+          </div>
+
+          <!-- Financing Card -->
+          <div class="card pad plan" style="border:2px solid rgba(112,225,161,.12)">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <h3>Financing (Ownership)</h3>
+              <span class="tag">Best Value</span>
+            </div>
+            <div class="dollars">$50<span class="small">/mo</span></div>
+            <ul style="margin-top:8px;color:var(--muted)">
+              <li>Financing starts at $50 per month (cheapest listed monthly price)</li>
+              <li>Minimum term: <strong>18 months</strong></li>
+              <li>No totals displayed — monthly payment and term shown; ask for buyout details</li>
+              <li>Delivery & setup included; repairs covered during term</li>
+            </ul>
+            <div style="margin-top:12px">
+              <button class="btn primary" onclick="activateTab('contact')">Reserve Financing</button>
+            </div>
+          </div>
+
+          <!-- 24-Month Option -->
+          <div class="card pad plan">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <h3>Shorter Term</h3>
+              <span class="tag" style="background:rgba(88,166,255,.12);color:var(--accent-2);border-color:rgba(88,166,255,.25)">Higher Payment Long Term Savings</span>
+            </div>
+            <div class="dollars">$70–$75<span class="small">/mo</span></div>
+            <ul style="margin-top:8px;color:var(--muted)">
+              <li>Shorter term options for higher monthly payments</li>
+              <li>Delivery & setup included</li>
+              <li>Repairs covered while under agreement</li>
+            </ul>
+            <div style="margin-top:12px">
+              <button class="btn" onclick="activateTab('contact')">Ask About Terms</button>
+            </div>
+          </div>
+        </div>
+
+        <p class="small muted">Note: Monthly payments listed are examples of typical plans. Exact payment depends on the model and selected term. Financing shows monthly and term (no totals). Contact us to get exact monthly amount for a specific model & term.</p>
+
+        <hr style="border:none;border-top:1px solid rgba(255,255,255,.04);margin:22px 0">
+
+        <h3 style="margin-top:6px">What’s included</h3>
+        <div class="grid cols-2" style="margin-top:12px">
+          <div class="card pad">
+            <h4>Delivery & Setup</h4>
+            <p class="muted">Our team installs and tests the set to make sure hookups (electric/gas) match your home. We level units and show you basic use.</p>
+          </div>
+          <div class="card pad">
+            <h4>Warranty & Repairs</h4>
+            <p class="muted">Basic repairs are included. If a unit cannot be repaired quickly, we offer a swap for a comparable set while yours is serviced.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPANY INFO PAGE -->
+    <section id="company" class="page">
+      <div class="section">
+        <h2>Company Information</h2>
+        <div class="card pad" style="margin-bottom:16px">
+          <h3>About Piney Woods Equiptment</h3>
+          <p class="muted">Piney Woods Equiptment provides affordable, reliable washer & dryer rental and financing across East Texas. We focus on fast delivery, easy setup, and responsive service. Our goal is to keep your laundry running with minimal hassle.</p>
+        </div>
+
+        <div class="grid cols-2">
+          <div class="card pad">
+            <h4>Business Details</h4>
+            <ul style="color:var(--muted);padding-left:18px;margin:8px 0">
+              <li>LLC: Piney Woods Equiptment</li>
+              <li>Hours: Mon–Sat, 8am–6pm</li>
+              <li>Service Area: Nacogdoches, Lufkin & nearby towns</li>
+            </ul>
+          </div>
+
+          <div class="card pad">
+            <h4>Service Options</h4>
+            <ul style="color:var(--muted);padding-left:18px;margin:8px 0">
+              <li>Month-to-month rental</li>
+              <li>Financing with minimum 18-month terms</li>
+              <li>Delivery, setup & repairs included</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top:16px" class="card pad">
+          <h4>Why customers choose us</h4>
+          <p class="muted">We keep things local: quick response times, flexible pickup, and repair service that actually shows up. Many customers prefer renting while they wait for home upgrades, or financing to avoid large upfront costs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REPAIR PAGE -->
+    <section id="repair" class="page">
+      <div class="section">
+        <h2>Repair Info & Service</h2>
+
+        <div class="grid cols-2">
+          <div class="card pad">
+            <h4>What's Covered</h4>
+            <ul style="color:var(--muted);padding-left:18px;margin-top:8px">
+              <li>Mechanical breakdowns from normal use</li>
+              <li>Electrical faults related to the unit (not house wiring)</li>
+              <li>Replacement unit provided if repair will be delayed</li>
+            </ul>
+            <p class="muted small" style="margin-top:8px">Note: Damage from misuse, foreign objects, or improper hookups may not be covered.</p>
+          </div>
+
+          <div class="card pad">
+            <h4>How to Request Service</h4>
+            <ol style="color:var(--muted);padding-left:18px;margin-top:8px">
+              <li>Call or text us at (936) 800-8633 with your account & address</li>
+              <li>Describe the symptom (noises, not spinning, no heat, error codes)</li>
+              <li>We’ll schedule a same-day or next-day visit depending on availability</li>
+            </ol>
+          </div>
+        </div>
+
+        <div style="margin-top:16px" class="card pad">
+          <h4>Service Fees</h4>
+          <p class="muted">Most repairs are included. In cases where damage is due to negligence, or if the customer requests out-of-scope work, a quote will be provided before work begins.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TROUBLESHOOTING PAGE -->
+    <section id="troubleshoot" class="page">
+      <div class="section">
+        <h2>Troubleshooting</h2>
+
+        <div class="grid cols-2">
+          <div class="card pad">
+            <h4>Common Washer Issues</h4>
+            <ul style="color:var(--muted);padding-left:18px;margin-top:8px">
+              <li><strong>Not starting:</strong> Check power supply and door latch.</li>
+              <li><strong>Not draining:</strong> Check the drain hose for kinks or clogs.</li>
+              <li><strong>Loud noise:</strong> Possible foreign object or unbalanced load — pause and redistribute items.</li>
+            </ul>
+            <p class="small muted" style="margin-top:8px">If these steps don't help, request service and we'll diagnose it quickly.</p>
+          </div>
+
+          <div class="card pad">
+            <h4>Common Dryer Issues</h4>
+            <ul style="color:var(--muted);padding-left:18px;margin-top:8px">
+              <li><strong>Not heating:</strong> Confirm correct hookup (gas vs electric) and circuit breaker.</li>
+              <li><strong>Not tumbling:</strong> Check drive belt or motor (we can dispatch repair).</li>
+              <li><strong>Loud vibration:</strong> Ensure dryer is level and lint trap is clean.</li>
+            </ul>
+            <p class="small muted" style="margin-top:8px">Still having trouble? We’ll swap or repair the unit under your plan.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:16px" class="card pad">
+          <h4>Before You Call</h4>
+          <ol style="color:var(--muted);padding-left:18px;margin-top:8px">
+            <li>Try a power cycle: unplug for 60 seconds then reconnect.</li>
+            <li>Check hoses and vents for obvious obstructions.</li>
+            <li>Note any error codes and the exact behavior — helps our techs diagnose faster.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT PAGE -->
+    <section id="contact" class="page">
+      <div class="section">
+        <h2>Contact & Reservations</h2>
+        <div class="contact-grid">
+          <div>
+            <div class="card pad">
+              <h3>Book a Delivery / Ask About Financing</h3>
+              <p class="muted">Call or text for fastest response. You can also submit a request below and your details will open in an email to us.</p>
+
+              <div style="margin-top:12px">
+                <strong>Jacob Bush</strong><br>
+                <a href="tel:9368008633" style="color:var(--accent)">(936) 800-8633</a><br>
+                <a href="mailto:bushj2262@gmail.com" style="color:var(--accent)">bushj2262@gmail.com</a><br>
+                <div class="small muted" style="margin-top:8px">Service Area: Nacogdoches • Lufkin • Angelina & Nacogdoches Counties</div>
+              </div>
+            </div>
+
+            <div style="margin-top:12px" class="card pad">
+              <h4>Hours & Policies</h4>
+              <ul style="color:var(--muted);padding-left:18px;margin-top:8px">
+                <li>Hours: Mon–Sat, 8am–6pm</li>
+                <li>First month due at delivery for rentals/financing initiation</li>
+                <li>No credit check for basic rental plans</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <div class="card pad">
+              <h3>Send a Request</h3>
+              <!-- mailto form (simple, no backend) -->
+              <form id="inquiryForm" action="mailto:bushj2262@gmail.com" method="post" enctype="text/plain">
+                <input name="name" type="text" placeholder="Full name" required>
+                <input name="phone" type="tel" placeholder="Phone (best contact)" required>
+                <input name="email" type="email" placeholder="Email (optional)">
+                <select name="interest" aria-label="Interest">
+                  <option>I'm interested in: Rental ($40/mo)</option>
+                  <option>I'm interested in: Financing (min 18-month term)</option>
+                  <option>Repair / Service Request</option>
+                  <option>General question</option>
+                </select>
+                <textarea name="message" placeholder="Address, hookup type (electric/gas), preferred delivery days"></textarea>
+                <input class="form-submit" type="submit" value="Send Request (opens email)">
+              </form>
+              <div class="small muted" style="margin-top:8px">Form opens your email app to send details. For immediate help, call or text (936) 800-8633.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      © <span id="year"></span> Piney Woods Equiptment — All rights reserved • Serving East Texas
+    </div>
+  </main>
+
+  <script>
+    // set year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Tab behaviour for SPA pages
+    const tabs = document.querySelectorAll('.tab');
+    const pages = document.querySelectorAll('.page');
+
+    function activateTab(id){
+      // set active tab button
+      tabs.forEach(t => {
+        t.classList.toggle('active', t.dataset.target === id);
+      });
+      // show/hide pages
+      pages.forEach(p => {
+        p.classList.toggle('active', p.id === id);
+        if (p.id === id) p.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    }
+
+    // attach events
+    tabs.forEach(t => {
+      t.addEventListener('click', () => {
+        activateTab(t.dataset.target);
+      });
+    });
+
+    // allow external button to activate tab by name
+    window.activateTab = activateTab;
+
+    // keyboard accessibility: left/right arrow switches tabs
+    let currentIndex = 0;
+    function updateIndex(){
+      const active = document.querySelector('.tab.active');
+      currentIndex = Array.from(tabs).indexOf(active);
+    }
+    updateIndex();
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        currentIndex = (currentIndex + 1) % tabs.length;
+        tabs[currentIndex].click();
+      } else if (e.key === 'ArrowLeft') {
+        currentIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+        tabs[currentIndex].click();
+      }
+    });
+
+    // ensure contact tab opens with focus on form for screen readers
+    document.querySelectorAll('[data-target="contact"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        setTimeout(()=> {
+          const firstInput = document.querySelector('#inquiryForm input[name="name"]');
+          if(firstInput) firstInput.focus();
+        }, 450);
+      });
+    });
+  </script>
+</body>
+</html>
