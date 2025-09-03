@@ -201,81 +201,99 @@
     </section>
 
     <!-- RENTAL & FINANCING PAGE -->
-    <section id="rental" class="page">
-      <div class="section">
-        <h2>Rental & Financing Terms</h2>
+<section id="rental" class="page">
+  <div class="section">
+    <h2>Rental & Financing Terms</h2>
 
-        <div class="grid cols-3" style="margin-bottom:18px">
-          <!-- Rental Card -->
-          <div class="card pad plan">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-              <h3>Rental (Ongoing)</h3>
-              <span class="tag" style="background:rgba(112,225,161,.08);color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px;border:1px solid rgba(112,225,161,.18)">Most Flexible</span>
-            </div>
-            <div class="dollars">$40<span class="small">/mo</span></div>
-            <ul style="margin-top:8px;color:var(--muted)">
-              <li>Month-to-month rental (cancel any time with notice)</li>
-              <li>Delivery & professional setup included</li>
-              <li>Repairs & replacement service included</li>
-              <li>Old unit haul-away available for a small fee</li>
-            </ul>
-            <div style="margin-top:12px">
-              <button class="btn" onclick="activateTab('contact')">Start Rental</button>
-            </div>
-          </div>
-
-          <!-- Financing Card -->
-          <div class="card pad plan" style="border:2px solid rgba(112,225,161,.12)">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-              <h3>Financing (Ownership)</h3>
-              <span class="tag">Best Value</span>
-            </div>
-            <div class="dollars">$50<span class="small">/mo</span></div>
-            <ul style="margin-top:8px;color:var(--muted)">
-              <li>Financing starts at $50 per month (cheapest listed monthly price)</li>
-              <li>Minimum term: <strong>18 months</strong></li>
-              <li>No totals displayed — monthly payment and term shown; ask for buyout details</li>
-              <li>Delivery & setup included; repairs covered during term</li>
-            </ul>
-            <div style="margin-top:12px">
-              <button class="btn primary" onclick="activateTab('contact')">Reserve Financing</button>
-            </div>
-          </div>
-
-          <!-- 24-Month Option -->
-          <div class="card pad plan">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-              <h3>Shorter Term</h3>
-              <span class="tag" style="background:rgba(88,166,255,.12);color:var(--accent-2);border-color:rgba(88,166,255,.25)">Higher Payment Long Term Savings</span>
-            </div>
-            <div class="dollars">$70–$75<span class="small">/mo</span></div>
-            <ul style="margin-top:8px;color:var(--muted)">
-              <li>Shorter term options for higher monthly payments</li>
-              <li>Delivery & setup included</li>
-              <li>Repairs covered while under agreement</li>
-            </ul>
-            <div style="margin-top:12px">
-              <button class="btn" onclick="activateTab('contact')">Ask About Terms</button>
-            </div>
-          </div>
+    <div class="grid cols-3" style="margin-bottom:18px">
+      <!-- Rental Card -->
+      <div class="card pad plan">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h3>Rental (Ongoing)</h3>
+          <span class="tag" style="background:rgba(112,225,161,.08);color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px;border:1px solid rgba(112,225,161,.18)">Most Flexible</span>
         </div>
+        <div class="dollars">$40<span class="small">/mo</span></div>
+        <ul style="margin-top:8px;color:var(--muted)">
+          <li>Month-to-month rental (cancel any time with notice)</li>
+          <li>Delivery & professional setup included</li>
+          <li>Repairs & replacement service included</li>
+          <li>Old unit haul-away available for a small fee</li>
+        </ul>
+        <div style="margin-top:12px">
+          <button class="btn" onclick="activateTab('contact')">Start Rental</button>
+        </div>
+      </div>
 
-        <p class="small muted">Note: Monthly payments listed are examples of typical plans. Exact payment depends on the model and selected term. Financing shows monthly and term (no totals). Contact us to get exact monthly amount for a specific model & term.</p>
-<div class="card pad" style="margin-top:20px;text-align:center;background:linear-gradient(180deg, rgba(112,225,161,.05), rgba(112,225,161,.02));border:1px solid rgba(112,225,161,.12);">
-  <h3>Make a Payment</h3>
-  <p class="muted" style="margin-bottom:12px">Click below to securely pay your monthly rental or financing installment.</p>
-  <a href="https://billing.stripe.com/p/login/7sY8wH9rJerjdNJgOp4Ni00" target="_blank" class="btn primary" style="padding:12px 20px;font-size:16px;">Pay Here</a>
-  <p class="small muted" style="margin-top:8px">Thank you for supporting a veteran-owned business!</p>
-</div>
-        <hr style="border:none;border-top:1px solid rgba(255,255,255,.04);margin:22px 0">
+      <!-- Financing Card -->
+      <div class="card pad plan" style="border:2px solid rgba(112,225,161,.12)">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h3>Financing (Ownership)</h3>
+          <span class="tag">Best Value</span>
+        </div>
+        <div class="dollars">$50<span class="small">/mo</span></div>
+        <ul style="margin-top:8px;color:var(--muted)">
+          <li>Financing starts at $50 per month</li>
+          <li>Minimum term: <strong>18 months</strong></li>
+          <li>Delivery & setup included; repairs covered during term</li>
+        </ul>
+        <div style="margin-top:12px">
+          <button class="btn primary" onclick="activateTab('contact')">Reserve Financing</button>
+        </div>
+      </div>
 
-        <h3 style="margin-top:6px">What’s included</h3>
-        <div class="grid cols-2" style="margin-top:12px">
-          <div class="card pad">
-            <h4>Delivery & Setup</h4>
-            <p class="muted">Our team installs and tests the set to make sure hookups (electric/gas) match your home. We level units and show you basic use.</p>
-          </div>
-          <div class="card pad">
+      <!-- Shorter Term -->
+      <div class="card pad plan">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h3>Shorter Term</h3>
+          <span class="tag" style="background:rgba(88,166,255,.12);color:var(--accent-2);border-color:rgba(88,166,255,.25)">Higher Payment</span>
+        </div>
+        <div class="dollars">$70–$75<span class="small">/mo</span></div>
+        <ul style="margin-top:8px;color:var(--muted)">
+          <li>Shorter term financing with higher monthly payment</li>
+          <li>Delivery & setup included</li>
+          <li>Repairs covered while under agreement</li>
+        </ul>
+        <div style="margin-top:12px">
+          <button class="btn" onclick="activateTab('contact')">Ask About Terms</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- New Modern Set Card -->
+    <div class="card pad plan" style="margin-bottom:18px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h3>Modern Set (Gently Used)</h3>
+        <span class="tag" style="background:rgba(255,209,102,.12);color:var(--warning);border-color:rgba(255,209,102,.25)">Premium Option</span>
+      </div>
+      <div class="dollars">$80<span class="small">/mo</span></div>
+      <ul style="margin-top:8px;color:var(--muted)">
+        <li>Financing for gently used, newer modern sets</li>
+        <li>Term: <strong>18 months</strong></li>
+        <li>Delivery & setup included; warranty swap & repairs covered</li>
+      </ul>
+      <div style="margin-top:12px">
+        <button class="btn" onclick="activateTab('contact')">Reserve Modern Set</button>
+      </div>
+    </div>
+
+    <!-- Payment Dropdown -->
+    <div style="background:#fff; border:1px solid #ddd; padding:25px; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); text-align:center; max-width:350px; margin:20px auto; font-family:Arial, sans-serif;">
+      <h2 style="margin-bottom:20px; color:#333;">Choose Your Payment Plan</h2>
+      
+      <select id="paymentOptions" style="padding:12px; width:100%; border:1px solid #ccc; border-radius:8px; margin-bottom:20px; font-size:16px;">
+        <option value="https://buy.stripe.com/7sYfZ9eM3erj10XfKl4Ni02">Rental Payments</option>
+        <option value="https://buy.stripe.com/cNi00bfQ7erj4d92Xz4Ni01">Finance - 18 Months</option>
+        <option value="https://buy.stripe.com/7sY8wH9rJerjdNJgOp4Ni00">Finance - 10 Months</option>
+        <option value="https://buy.stripe.com/5kQ6ozbzR82VdNJ1Tv4Ni05">Modern Set - $80/mo (18 Months)</option>
+      </select>
+      
+      <button onclick="(function(){window.open(document.getElementById('paymentOptions').value,'_blank')})()" 
+              style="background:#007bff; color:white; border:none; padding:12px 20px; border-radius:8px; cursor:pointer; font-size:16px; transition:background 0.3s ease;">
+        Buy Now
+      </button>
+    </div>
+  </div>
+</section>
             <h4>Warranty & Repairs</h4>
             <p class="muted">Basic repairs are included. If a unit cannot be repaired quickly, we offer a swap for a comparable set while yours is serviced.</p>
           </div>
